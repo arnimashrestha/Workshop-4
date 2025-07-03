@@ -23,9 +23,8 @@ void setup() {
 void loop() {
   // "analog read" reads the value from a specified analog input pin
   //in our case, it is A0
-  int lightVal = analogRead(sensorPin);  
-
-  if (lightVal > brightThreshold) {
+  int lightValue = analogRead(sensorPin);  
+  if (lightValue > brightThreshold) {
     // Brightest (flashlight)
     //The green channel on this LED is very bright
     //turn it on with analogWrite(pin,50)
@@ -33,12 +32,12 @@ void loop() {
     analogWrite(greenLED, 50); 
     digitalWrite(redLED, 0);
     digitalWrite(blueLED, 0);
-  } else if (lightVal < darkThreshold) {
+  } else if (lightValue < darkThreshold) {
     // Turn Off Lights
     digitalWrite(redLED, HIGH);
     digitalWrite(greenLED, 0);
     digitalWrite(blueLED, 0);
-  } else if  (lightVal > darkThreshold && lightVal< brightThreshold) {
+  } else if  (lightValue > darkThreshold && lightValue< brightThreshold) {
     // Lights
     digitalWrite(blueLED, HIGH);
     digitalWrite(redLED, 0);
