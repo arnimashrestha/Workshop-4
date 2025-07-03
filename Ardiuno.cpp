@@ -7,7 +7,7 @@ const int sensorPin = A0;
 
 //setting variable names to avoid confusion 
 const int redLED = 7;   
-const int bluePin = 6;   
+const int blueLED = 6;   
 const int greenPin = 5;     
 
 // Light level thresholds (adjust as needed)
@@ -17,7 +17,7 @@ const int brightThreshold = 800;
 void setup() {
   pinMode(redLED, OUTPUT);
   pinMode(greenPin, OUTPUT);
-  pinMode(bluePin, OUTPUT);
+  pinMode(blueLED, OUTPUT);
 }
 
 void loop() {
@@ -32,15 +32,15 @@ void loop() {
     //to avoid straining your eyes
     analogWrite(greenPin, 50); 
     digitalWrite(redLED, 0);
-    digitalWrite(bluePin, 0);
+    digitalWrite(blueLED, 0);
   } else if (lightVal < darkThreshold) {
     // Turn Off Lights
     digitalWrite(redLED, HIGH);
     digitalWrite(greenPin, 0);
-    digitalWrite(bluePin, 0);
+    digitalWrite(blueLED, 0);
   } else if  (lightVal > darkThreshold && lightVal< brightThreshold) {
     // Lights
-    digitalWrite(bluePin, HIGH);
+    digitalWrite(blueLED, HIGH);
     digitalWrite(redLED, 0);
     digitalWrite(greenPin, 0);
   }
